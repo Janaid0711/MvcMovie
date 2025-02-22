@@ -5,16 +5,16 @@ namespace MvcMovie.Controllers
 {
     public class HelloWorldController : Controller
     {
-        //  Get /HelloWorld/
-        public string index()
+        public IActionResult Index()
         {
-            return "This is my default action";
+            return View();
         }
-
-        //  Get /HelloWorld/Welcome
-        public string Welcome()
+        public IActionResult Welcome(string name, int numTimes=1)
         {
-            return "This  is the Welcome action needed";
+            ViewData["Message"] = "Hello" + name;
+            ViewData["NumTimes"] = numTimes;
+            return View();
         }
+      
     }
 }
